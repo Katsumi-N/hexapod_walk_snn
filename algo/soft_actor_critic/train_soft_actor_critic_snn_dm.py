@@ -19,9 +19,9 @@ from pfrl import utils
 from pfrl import replay_buffers
 
 import sys
-sys.path.append('../../../../')
-
-from examples.mujoco.reproduction.soft_actor_critic.popsan import SquashedGaussianPopSpikeActor
+sys.path.append('../../../')
+sys.path.append('../../')
+from popsan import SquashedGaussianPopSpikeActor
 
 def main():
 

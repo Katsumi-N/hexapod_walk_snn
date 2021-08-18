@@ -24,9 +24,6 @@ from pfrl.nn import ConcatObsAndAction
 from pfrl.nn import BoundByTanh
 from pfrl.policies import DeterministicHead
 
-# 自作環境のimport
-import sys
-sys.path.append('D:\HayashibeLab\Ant_injury')
 
 def main():
 

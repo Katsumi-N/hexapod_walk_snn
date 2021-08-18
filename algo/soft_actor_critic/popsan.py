@@ -7,7 +7,7 @@ from torch.distributions.normal import Normal
 import sys
 
 # sys.path.append('../../')
-import examples.mujoco.reproduction.soft_actor_critic.core_cuda as core
+import core_cuda as core
 
 """
 Parameters for SNN

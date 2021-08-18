@@ -27,7 +27,7 @@ sys.path.append('D:\HayashibeLab\Ant_injury')
 # サーバーのパス
 sys.path.append('../../../../')
 
-from examples.mujoco.reproduction.td3.popsan import PopSpikeActor
+from popsan import PopSpikeActor
 # from mujoco_py import GlfwContext
 # GlfwContext(offscreen=True)
 
