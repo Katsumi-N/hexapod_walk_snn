@@ -45,3 +45,5 @@ The learning results will be stored in the "result" folder.
 Next, run "cost_of_transport.py". For example, `python cost_of_transport.py --file cot_sac_snn --alpha alpha_6`
 
 
+# Acknowledgments
+The code in this repository is based on the code at https://github.com/combra-lab/pop-spiking-deep-rl
