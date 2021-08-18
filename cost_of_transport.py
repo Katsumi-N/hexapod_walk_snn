@@ -1,6 +1,4 @@
-# SAC+SNN
-# python results/cost_of_transport.py --file cost_of_transport_sac_snn_0_seed_0 --file cost_of_transport_sac_snn_0_seed_1 --file cost_of_transport_sac_snn_0_seed_2 --file cost_of_transport_sac_snn_0_seed_3 --file cost_of_transport_sac_snn_0_seed_4 --file cost_of_transport_sac_snn_1_seed_0 --file cost_of_transport_sac_snn_1_seed_1 --file cost_of_transport_sac_snn_1_seed_2 --file cost_of_transport_sac_snn_1_seed_3 --file cost_of_transport_sac_snn_1_seed_4 --file cost_of_transport_sac_snn_2_seed_0 --file cost_of_transport_sac_snn_2_seed_1 --file cost_of_transport_sac_snn_2_seed_2 --file cost_of_transport_sac_snn_2_seed_3 --file cost_of_transport_sac_snn_2_seed_4
-
+# calculate Cost of Transport
 import csv
 import argparse
 import numpy as np
@@ -12,32 +10,15 @@ parser.add_argument(
     default=[],
     type=str,
 )
-parser.add_argument(
-    "--algo",
-    type=str,
-    default="sac"
-)
 
 parser.add_argument(
-    "--full",
-    type=bool,
-    default=True
-)
-
-parser.add_argument(
-    "--snn",
-    type=bool,
-    default=False
-)
-
-parser.add_argument(
-    "--dir",
+    "--alpha",
     type=str,
     default="alpha_3"
 )
 args = parser.parse_args()
 
-file_dir = "D:/HayashibeLab/Ant_injury/results/cost_of_transport/"+ args.dir +"/"
+file_dir = "results/cost_of_transport/"+ args.alpha +"/"
 #cot = [0 for _ in range(len(args.file))]
 cot = []
 for i in range(len(args.file)):
@@ -55,7 +36,8 @@ for i in range(len(args.file)):
 
             else:
                 energy += abs(float(reader[j][0]))
-                distance += abs(float(reader[j][1]))
+                # mg=600→900に修正(脚の重さを考慮)
+                distance += abs(float(reader[j][1])) * 900
 
         
 std = np.std(cot)
@@ -64,10 +46,8 @@ print("cost of transport", cot)
 print("mean", ave)
 print("std", std)
 
-name = args.algo
+name = args.file[0]
 
-if args.snn:
-    name = name + "_snn"
 
 if args.full:
     with open(file_dir + "result_"+ name+ ".csv", "w") as f:
